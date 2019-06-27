@@ -73,6 +73,7 @@
     <Content Include="MiCss.css" />
     <Content Include="Web.config" />
     <Content Include="Index.aspx" />
+    <Content Include="WebService1.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsignarRamos.aspx.cs">
@@ -82,6 +83,7 @@
     <Compile Include="AsignarRamos.aspx.designer.cs">
       <DependentUpon>AsignarRamos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BaseDatos.cs" />
     <Compile Include="CargarNotas.aspx.cs">
       <DependentUpon>CargarNotas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -89,6 +91,7 @@
     <Compile Include="CargarNotas.aspx.designer.cs">
       <DependentUpon>CargarNotas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="JsonUmas.cs" />
     <Compile Include="ListarRamos.aspx.cs">
       <DependentUpon>ListarRamos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -96,6 +99,7 @@
     <Compile Include="ListarRamos.aspx.designer.cs">
       <DependentUpon>ListarRamos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ModeloUmas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -106,6 +110,10 @@
     </Compile>
     <Compile Include="ramo.cs" />
     <Compile Include="ramos.cs" />
+    <Compile Include="WebService1.asmx.cs">
+      <DependentUpon>WebService1.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
