@@ -31,6 +31,15 @@ namespace nota3 {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblRamo;
         
         /// <summary>
+        /// Control ddlCarreras.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCarreras;
+        
+        /// <summary>
         /// Control ddlRamos.
         /// </summary>
         /// <remarks>

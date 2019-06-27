@@ -18,6 +18,7 @@
                  
             </div>
              <div>
+                <asp:DropDownList ID="ddlCarreras" CssClass="btn" runat="server"></asp:DropDownList>
                 <asp:DropDownList ID="ddlRamos" CssClass="btn" runat="server"></asp:DropDownList>
                   
             </div>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Xml;
 
 namespace nota3
 {
@@ -18,9 +19,17 @@ namespace nota3
     {
 
         [WebMethod]
-        public string HelloWorld()
+        public XmlDocument Carreras()
         {
-            return "Hola a todos";
+            XmlUmas objxml = new XmlUmas();
+            return objxml.xmlCarreras();
+        }
+
+        [WebMethod]
+        public XmlDocument MallaCarrera(string codcarr)
+        {
+            XmlUmas objxml = new XmlUmas();
+            return objxml.xmlMallaCarrera(codcarr);
         }
     }
 }
