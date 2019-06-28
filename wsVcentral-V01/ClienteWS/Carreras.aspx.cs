@@ -10,7 +10,9 @@ using System.Web.UI.WebControls;
 using System.Xml;
 using wsUmas;
 using ClasesApi;
-
+using System.Xml.Serialization;
+using Umas.Negocio;
+using Umas.DALC;
 public partial class index : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -25,10 +27,13 @@ public partial class index : System.Web.UI.Page
         string res = leerPaginaWeb(url);
         JavaScriptSerializer js = new JavaScriptSerializer();
         Cursos Lista = js.Deserialize<Cursos>(res);
-
+        cboCurso.Items.Clear();
+        cboCurso.Items.Add(new ListItem("Seleccione...", ""));
         foreach (Ramos cursos in Lista.cursos)
         {
-            Response.Write("Código de curso : " + cursos.IDCursoMoodle + " - Nombre : " + cursos.Nombre + "<br>");
+            string valor = cursos.IDCursoMoodle;
+            string texto = cursos.Nombre;
+            cboCurso.Items.Add(new ListItem(texto,valor));
         }
     }
 
@@ -86,6 +91,49 @@ public partial class index : System.Web.UI.Page
             string valor = item.SelectSingleNode("codramo").InnerText;
             string texto = item.SelectSingleNode("nomramo").InnerText;
             cboRamos.Items.Add(new ListItem(texto, valor));
+        }
+    }
+
+
+    public bool Crear(string xmlAsignacion)
+    {
+        XmlSerializer xmlSerial = new XmlSerializer(typeof(Entidades.Asignacion));
+        StringReader xmlRead = new StringReader(xmlAsignacion);
+        Entidades.Asignacion oAs = (Entidades.Asignacion)xmlSerial.Deserialize(xmlRead);
+        Umas.Negocio.Asignacion nAs = new Umas.Negocio.Asignacion();
+
+        if (nAs.Crear(oAs))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    protected void Asignar_Click(object sender, EventArgs e)
+    {
+        XmlSerializer xmlSerial = new XmlSerializer(typeof(Entidades.Asignacion));
+        StringWriter xmlWrite = new StringWriter();
+        Entidades.Asignacion oAs = new Entidades.Asignacion();
+        wsUmas.WebServiceSoapClient ws = new wsUmas.WebServiceSoapClient();
+        
+        bool resp;
+        oAs.Id_carrera = cboCarrera.SelectedValue;
+        oAs.Id_curso_modle = cboCurso.SelectedValue;
+        oAs.Id_ramo = cboRamos.SelectedValue;
+        xmlSerial.Serialize(xmlWrite, oAs);
+        resp = Crear(xmlSerial.ToString());
+
+        if (resp)
+        {
+            lblResultado.InnerText = "Datos Guardados";
+        }
+        else
+        {
+            lblResultado.InnerText = "Datos NO guardados";
         }
     }
 }

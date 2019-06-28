@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_vcentralModelStoreContainer" CdmEntityContainer="db_vcentralEntities2">
+    <EntitySetMapping Name="alumno">
+      <EntityTypeMapping TypeName="db_vcentralModel.alumno">
+        <MappingFragment StoreEntitySet="alumno">
+          <ScalarProperty Name="id_alu" ColumnName="id_alu" />
+          <ScalarProperty Name="codalu" ColumnName="codalu" />
+          <ScalarProperty Name="paterno" ColumnName="paterno" />
+          <ScalarProperty Name="materno" ColumnName="materno" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="codcarr" ColumnName="codcarr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="asignacion">
+      <EntityTypeMapping TypeName="db_vcentralModel.asignacion">
+        <MappingFragment StoreEntitySet="asignacion">
+          <ScalarProperty Name="id_asignacion" ColumnName="id_asignacion" />
+          <ScalarProperty Name="id_curso_moodle" ColumnName="id_curso_moodle" />
+          <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+          <ScalarProperty Name="id_ramo" ColumnName="id_ramo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="asignacion_ramos">
+      <EntityTypeMapping TypeName="db_vcentralModel.asignacion_ramos">
+        <MappingFragment StoreEntitySet="asignacion_ramos">
+          <ScalarProperty Name="id_asignacion" ColumnName="id_asignacion" />
+          <ScalarProperty Name="id_curso_moodle" ColumnName="id_curso_moodle" />
+          <ScalarProperty Name="id_carrera" ColumnName="id_carrera" />
+          <ScalarProperty Name="id_malla" ColumnName="id_malla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="carrera">
+      <EntityTypeMapping TypeName="db_vcentralModel.carrera">
+        <MappingFragment StoreEntitySet="carrera">
+          <ScalarProperty Name="codcarr" ColumnName="codcarr" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="malla">
+      <EntityTypeMapping TypeName="db_vcentralModel.malla">
+        <MappingFragment StoreEntitySet="malla">
+          <ScalarProperty Name="id_malla" ColumnName="id_malla" />
+          <ScalarProperty Name="codcarr" ColumnName="codcarr" />
+          <ScalarProperty Name="codramo" ColumnName="codramo" />
+          <ScalarProperty Name="codsecc" ColumnName="codsecc" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="nota">
+      <EntityTypeMapping TypeName="db_vcentralModel.nota">
+        <MappingFragment StoreEntitySet="nota">
+          <ScalarProperty Name="ano" ColumnName="ano" />
+          <ScalarProperty Name="per" ColumnName="per" />
+          <ScalarProperty Name="codramo" ColumnName="codramo" />
+          <ScalarProperty Name="codsecc" ColumnName="codsecc" />
+          <ScalarProperty Name="codalu" ColumnName="codalu" />
+          <ScalarProperty Name="nf" ColumnName="nf" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ramo">
+      <EntityTypeMapping TypeName="db_vcentralModel.ramo">
+        <MappingFragment StoreEntitySet="ramo">
+          <ScalarProperty Name="codramo" ColumnName="codramo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="alumnomalla" TypeName="db_vcentralModel.alumnomalla" StoreEntitySet="alumnomalla">
+      <EndProperty Name="alumno">
+        <ScalarProperty Name="id_alu" ColumnName="id_alu" />
+      </EndProperty>
+      <EndProperty Name="malla">
+        <ScalarProperty Name="id_malla" ColumnName="id_malla" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="sp_carreras" FunctionName="db_vcentralModel.Store.sp_carreras">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_vcentralModel.sp_carreras_Result">
+          <ScalarProperty Name="codcarr" ColumnName="codcarr" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_mallacarrera" FunctionName="db_vcentralModel.Store.sp_mallacarrera">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_vcentralModel.sp_mallacarrera_Result">
+          <ScalarProperty Name="codcarr" ColumnName="codcarr" />
+          <ScalarProperty Name="nomcarrera" ColumnName="nomcarrera" />
+          <ScalarProperty Name="codramo" ColumnName="codramo" />
+          <ScalarProperty Name="nomramo" ColumnName="nomramo" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ramos" FunctionName="db_vcentralModel.Store.sp_ramos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_vcentralModel.sp_ramos_Result">
+          <ScalarProperty Name="codramo" ColumnName="codramo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_malla" ColumnName="id_malla" />
+          <ScalarProperty Name="codcarr" ColumnName="codcarr" />
+          <ScalarProperty Name="codramo1" ColumnName="codramo1" />
+          <ScalarProperty Name="codsecc" ColumnName="codsecc" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="codcarr1" ColumnName="codcarr1" />
+          <ScalarProperty Name="nombre1" ColumnName="nombre1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_rut" FunctionName="db_vcentralModel.Store.sp_rut">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_vcentralModel.sp_rut_Result">
+          <ScalarProperty Name="id_alu" ColumnName="id_alu" />
+          <ScalarProperty Name="codalu" ColumnName="codalu" />
+          <ScalarProperty Name="paterno" ColumnName="paterno" />
+          <ScalarProperty Name="materno" ColumnName="materno" />
+          <ScalarProperty Name="nombres" ColumnName="nombres" />
+          <ScalarProperty Name="codcarr" ColumnName="codcarr" />
+          <ScalarProperty Name="codcarr1" ColumnName="codcarr1" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id_malla" ColumnName="id_malla" />
+          <ScalarProperty Name="codcarr2" ColumnName="codcarr2" />
+          <ScalarProperty Name="codramo" ColumnName="codramo" />
+          <ScalarProperty Name="codsecc" ColumnName="codsecc" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="orden" ColumnName="orden" />
+          <ScalarProperty Name="codramo1" ColumnName="codramo1" />
+          <ScalarProperty Name="nombre1" ColumnName="nombre1" />
+          <ScalarProperty Name="ano" ColumnName="ano" />
+          <ScalarProperty Name="per" ColumnName="per" />
+          <ScalarProperty Name="codramo2" ColumnName="codramo2" />
+          <ScalarProperty Name="codsecc1" ColumnName="codsecc1" />
+          <ScalarProperty Name="codalu1" ColumnName="codalu1" />
+          <ScalarProperty Name="nf" ColumnName="nf" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

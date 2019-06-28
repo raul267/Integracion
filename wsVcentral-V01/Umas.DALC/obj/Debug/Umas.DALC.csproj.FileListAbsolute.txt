@@ -1,0 +1,12 @@
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\bin\Debug\Umas.DALC.dll.config
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\bin\Debug\Umas.DALC.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\bin\Debug\Umas.DALC.pdb
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\bin\Debug\EntityFramework.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\bin\Debug\EntityFramework.xml
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\obj\Debug\Umas.DALC.csprojAssemblyReference.cache
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\obj\Debug\Umas.DALC.csproj.CoreCompileInputs.cache
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\obj\Debug\Umas.DALC.csproj.CopyComplete
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\obj\Debug\Umas.DALC.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Umas.DALC\obj\Debug\Umas.DALC.pdb

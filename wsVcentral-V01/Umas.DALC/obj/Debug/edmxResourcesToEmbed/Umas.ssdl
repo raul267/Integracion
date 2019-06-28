@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_vcentralModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="alumno">
+    <Key>
+      <PropertyRef Name="id_alu" />
+    </Key>
+    <Property Name="id_alu" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codalu" Type="varchar" MaxLength="50" />
+    <Property Name="paterno" Type="varchar" MaxLength="100" />
+    <Property Name="materno" Type="varchar" MaxLength="100" />
+    <Property Name="nombres" Type="varchar" MaxLength="100" />
+    <Property Name="codcarr" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="alumnomalla">
+    <Key>
+      <PropertyRef Name="id_alu" />
+      <PropertyRef Name="id_malla" />
+    </Key>
+    <Property Name="id_alu" Type="bigint" Nullable="false" />
+    <Property Name="id_malla" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="asignacion">
+    <Key>
+      <PropertyRef Name="id_asignacion" />
+    </Key>
+    <Property Name="id_asignacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_curso_moodle" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_carrera" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_ramo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="asignacion_ramos">
+    <Key>
+      <PropertyRef Name="id_asignacion" />
+    </Key>
+    <Property Name="id_asignacion" Type="int" Nullable="false" />
+    <Property Name="id_curso_moodle" Type="int" Nullable="false" />
+    <Property Name="id_carrera" Type="int" Nullable="false" />
+    <Property Name="id_malla" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="carrera">
+    <Key>
+      <PropertyRef Name="codcarr" />
+    </Key>
+    <Property Name="codcarr" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="malla">
+    <Key>
+      <PropertyRef Name="id_malla" />
+    </Key>
+    <Property Name="id_malla" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="codcarr" Type="varchar" MaxLength="50" />
+    <Property Name="codramo" Type="varchar" MaxLength="50" />
+    <Property Name="codsecc" Type="int" />
+    <Property Name="nivel" Type="int" />
+    <Property Name="orden" Type="int" />
+  </EntityType>
+  <EntityType Name="nota">
+    <Key>
+      <PropertyRef Name="ano" />
+      <PropertyRef Name="per" />
+      <PropertyRef Name="codramo" />
+      <PropertyRef Name="codsecc" />
+      <PropertyRef Name="codalu" />
+    </Key>
+    <Property Name="ano" Type="int" Nullable="false" />
+    <Property Name="per" Type="int" Nullable="false" />
+    <Property Name="codramo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codsecc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codalu" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nf" Type="numeric" Precision="3" Scale="1" />
+    <Property Name="estado" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="ramo">
+    <Key>
+      <PropertyRef Name="codramo" />
+    </Key>
+    <Property Name="codramo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__alumno__codcarr__145C0A3F">
+    <End Role="carrera" Type="Self.carrera" Multiplicity="0..1" />
+    <End Role="alumno" Type="Self.alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="codcarr" />
+      </Principal>
+      <Dependent Role="alumno">
+        <PropertyRef Name="codcarr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__alumnomal__id_al__1B0907CE">
+    <End Role="alumno" Type="Self.alumno" Multiplicity="1" />
+    <End Role="alumnomalla" Type="Self.alumnomalla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="alumno">
+        <PropertyRef Name="id_alu" />
+      </Principal>
+      <Dependent Role="alumnomalla">
+        <PropertyRef Name="id_alu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__alumnomal__id_ma__1BFD2C07">
+    <End Role="malla" Type="Self.malla" Multiplicity="1" />
+    <End Role="alumnomalla" Type="Self.alumnomalla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="malla">
+        <PropertyRef Name="id_malla" />
+      </Principal>
+      <Dependent Role="alumnomalla">
+        <PropertyRef Name="id_malla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__malla__codcarr__182C9B23">
+    <End Role="carrera" Type="Self.carrera" Multiplicity="0..1" />
+    <End Role="malla" Type="Self.malla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="codcarr" />
+      </Principal>
+      <Dependent Role="malla">
+        <PropertyRef Name="codcarr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__malla__codramo__173876EA">
+    <End Role="ramo" Type="Self.ramo" Multiplicity="0..1" />
+    <End Role="malla" Type="Self.malla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ramo">
+        <PropertyRef Name="codramo" />
+      </Principal>
+      <Dependent Role="malla">
+        <PropertyRef Name="codramo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__nota__codramo__1ED998B2">
+    <End Role="ramo" Type="Self.ramo" Multiplicity="1" />
+    <End Role="nota" Type="Self.nota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ramo">
+        <PropertyRef Name="codramo" />
+      </Principal>
+      <Dependent Role="nota">
+        <PropertyRef Name="codramo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_carreras" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_mallacarrera" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="codcarr" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_ramos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_rut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="rut" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="db_vcentralModelStoreContainer">
+    <EntitySet Name="alumno" EntityType="Self.alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="alumnomalla" EntityType="Self.alumnomalla" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="asignacion" EntityType="Self.asignacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="asignacion_ramos" EntityType="Self.asignacion_ramos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="carrera" EntityType="Self.carrera" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="malla" EntityType="Self.malla" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="nota" EntityType="Self.nota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ramo" EntityType="Self.ramo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__alumno__codcarr__145C0A3F" Association="Self.FK__alumno__codcarr__145C0A3F">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="alumno" EntitySet="alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__alumnomal__id_al__1B0907CE" Association="Self.FK__alumnomal__id_al__1B0907CE">
+      <End Role="alumno" EntitySet="alumno" />
+      <End Role="alumnomalla" EntitySet="alumnomalla" />
+    </AssociationSet>
+    <AssociationSet Name="FK__alumnomal__id_ma__1BFD2C07" Association="Self.FK__alumnomal__id_ma__1BFD2C07">
+      <End Role="malla" EntitySet="malla" />
+      <End Role="alumnomalla" EntitySet="alumnomalla" />
+    </AssociationSet>
+    <AssociationSet Name="FK__malla__codcarr__182C9B23" Association="Self.FK__malla__codcarr__182C9B23">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="malla" EntitySet="malla" />
+    </AssociationSet>
+    <AssociationSet Name="FK__malla__codramo__173876EA" Association="Self.FK__malla__codramo__173876EA">
+      <End Role="ramo" EntitySet="ramo" />
+      <End Role="malla" EntitySet="malla" />
+    </AssociationSet>
+    <AssociationSet Name="FK__nota__codramo__1ED998B2" Association="Self.FK__nota__codramo__1ED998B2">
+      <End Role="ramo" EntitySet="ramo" />
+      <End Role="nota" EntitySet="nota" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
