@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UmasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="alumno">
+    <Key>
+      <PropertyRef Name="id_alu" />
+    </Key>
+    <Property Name="id_alu" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codalu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="paterno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="materno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nombres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="codcarr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="carrera" Relationship="Self.FK__alumno__codcarr__145C0A3F" FromRole="alumno" ToRole="carrera" />
+    <NavigationProperty Name="malla" Relationship="Self.alumnomalla" FromRole="alumno" ToRole="malla" />
+  </EntityType>
+  <EntityType Name="carrera">
+    <Key>
+      <PropertyRef Name="codcarr" />
+    </Key>
+    <Property Name="codcarr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="alumno" Relationship="Self.FK__alumno__codcarr__145C0A3F" FromRole="carrera" ToRole="alumno" />
+    <NavigationProperty Name="malla" Relationship="Self.FK__malla__codcarr__182C9B23" FromRole="carrera" ToRole="malla" />
+  </EntityType>
+  <EntityType Name="malla">
+    <Key>
+      <PropertyRef Name="id_malla" />
+    </Key>
+    <Property Name="id_malla" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="codcarr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="codramo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="codsecc" Type="Int32" />
+    <Property Name="nivel" Type="Int32" />
+    <Property Name="orden" Type="Int32" />
+    <NavigationProperty Name="carrera" Relationship="Self.FK__malla__codcarr__182C9B23" FromRole="malla" ToRole="carrera" />
+    <NavigationProperty Name="ramo" Relationship="Self.FK__malla__codramo__173876EA" FromRole="malla" ToRole="ramo" />
+    <NavigationProperty Name="alumno" Relationship="Self.alumnomalla" FromRole="malla" ToRole="alumno" />
+  </EntityType>
+  <EntityType Name="nota">
+    <Key>
+      <PropertyRef Name="ano" />
+      <PropertyRef Name="per" />
+      <PropertyRef Name="codramo" />
+      <PropertyRef Name="codsecc" />
+      <PropertyRef Name="codalu" />
+    </Key>
+    <Property Name="ano" Type="Int32" Nullable="false" />
+    <Property Name="per" Type="Int32" Nullable="false" />
+    <Property Name="codramo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codsecc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="codalu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nf" Type="Decimal" Precision="3" Scale="1" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ramo" Relationship="Self.FK__nota__codramo__1ED998B2" FromRole="nota" ToRole="ramo" />
+  </EntityType>
+  <EntityType Name="ramo">
+    <Key>
+      <PropertyRef Name="codramo" />
+    </Key>
+    <Property Name="codramo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="malla" Relationship="Self.FK__malla__codramo__173876EA" FromRole="ramo" ToRole="malla" />
+    <NavigationProperty Name="nota" Relationship="Self.FK__nota__codramo__1ED998B2" FromRole="ramo" ToRole="nota" />
+  </EntityType>
+  <Association Name="FK__alumno__codcarr__145C0A3F">
+    <End Role="carrera" Type="Self.carrera" Multiplicity="0..1" />
+    <End Role="alumno" Type="Self.alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="codcarr" />
+      </Principal>
+      <Dependent Role="alumno">
+        <PropertyRef Name="codcarr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__malla__codcarr__182C9B23">
+    <End Role="carrera" Type="Self.carrera" Multiplicity="0..1" />
+    <End Role="malla" Type="Self.malla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="codcarr" />
+      </Principal>
+      <Dependent Role="malla">
+        <PropertyRef Name="codcarr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__malla__codramo__173876EA">
+    <End Role="ramo" Type="Self.ramo" Multiplicity="0..1" />
+    <End Role="malla" Type="Self.malla" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ramo">
+        <PropertyRef Name="codramo" />
+      </Principal>
+      <Dependent Role="malla">
+        <PropertyRef Name="codramo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__nota__codramo__1ED998B2">
+    <End Role="ramo" Type="Self.ramo" Multiplicity="1" />
+    <End Role="nota" Type="Self.nota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ramo">
+        <PropertyRef Name="codramo" />
+      </Principal>
+      <Dependent Role="nota">
+        <PropertyRef Name="codramo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="alumnomalla">
+    <End Role="alumno" Type="Self.alumno" Multiplicity="*" />
+    <End Role="malla" Type="Self.malla" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="db_vcentralEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="alumno" EntityType="Self.alumno" />
+    <EntitySet Name="carrera" EntityType="Self.carrera" />
+    <EntitySet Name="malla" EntityType="Self.malla" />
+    <EntitySet Name="nota" EntityType="Self.nota" />
+    <EntitySet Name="ramo" EntityType="Self.ramo" />
+    <AssociationSet Name="FK__alumno__codcarr__145C0A3F" Association="Self.FK__alumno__codcarr__145C0A3F">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="alumno" EntitySet="alumno" />
+    </AssociationSet>
+    <AssociationSet Name="FK__malla__codcarr__182C9B23" Association="Self.FK__malla__codcarr__182C9B23">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="malla" EntitySet="malla" />
+    </AssociationSet>
+    <AssociationSet Name="FK__malla__codramo__173876EA" Association="Self.FK__malla__codramo__173876EA">
+      <End Role="ramo" EntitySet="ramo" />
+      <End Role="malla" EntitySet="malla" />
+    </AssociationSet>
+    <AssociationSet Name="FK__nota__codramo__1ED998B2" Association="Self.FK__nota__codramo__1ED998B2">
+      <End Role="ramo" EntitySet="ramo" />
+      <End Role="nota" EntitySet="nota" />
+    </AssociationSet>
+    <AssociationSet Name="alumnomalla" Association="Self.alumnomalla">
+      <End Role="alumno" EntitySet="alumno" />
+      <End Role="malla" EntitySet="malla" />
+    </AssociationSet>
+    <FunctionImport Name="sp_carreras" ReturnType="Collection(UmasModel.sp_carreras_Result)" />
+    <FunctionImport Name="sp_mallacarrera" ReturnType="Collection(UmasModel.sp_mallacarrera_Result)">
+      <Parameter Name="codcarr" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ramos" ReturnType="Collection(UmasModel.sp_ramos_Result)">
+      <Parameter Name="id" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_rut" ReturnType="Collection(UmasModel.sp_rut_Result)">
+      <Parameter Name="rut" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_carreras_Result">
+    <Property Type="String" Name="codcarr" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="sp_mallacarrera_Result">
+    <Property Type="String" Name="codcarr" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nomcarrera" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="codramo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nomramo" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="nivel" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_ramos_Result">
+    <Property Type="String" Name="codramo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="id_malla" Nullable="false" />
+    <Property Type="String" Name="codcarr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="codramo1" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="codsecc" Nullable="true" />
+    <Property Type="Int32" Name="nivel" Nullable="true" />
+    <Property Type="Int32" Name="orden" Nullable="true" />
+    <Property Type="String" Name="codcarr1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nombre1" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="sp_rut_Result">
+    <Property Type="Int64" Name="id_alu" Nullable="false" />
+    <Property Type="String" Name="codalu" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="paterno" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="materno" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="nombres" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="codcarr" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="codcarr1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="100" />
+    <Property Type="Int64" Name="id_malla" Nullable="false" />
+    <Property Type="String" Name="codcarr2" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="codramo" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="codsecc" Nullable="true" />
+    <Property Type="Int32" Name="nivel" Nullable="true" />
+    <Property Type="Int32" Name="orden" Nullable="true" />
+    <Property Type="String" Name="codramo1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nombre1" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ano" Nullable="false" />
+    <Property Type="Int32" Name="per" Nullable="false" />
+    <Property Type="String" Name="codramo2" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="codsecc1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="codalu1" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="nf" Nullable="true" Precision="3" Scale="1" />
+    <Property Type="String" Name="estado" Nullable="true" MaxLength="1" />
+  </ComplexType>
+</Schema>

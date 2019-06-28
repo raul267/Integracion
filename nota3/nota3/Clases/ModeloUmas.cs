@@ -36,7 +36,7 @@ namespace nota3
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "sp_ramos";
+                cmd.CommandText = "sp_mallacarrera";
                 cmd.Parameters.Add("@codcarr", SqlDbType.VarChar, 50).Value = codcarr;
                 BaseDatos db = new BaseDatos();
                 dt = db.EjecutarConsulta(cmd);

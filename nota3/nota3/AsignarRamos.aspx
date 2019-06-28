@@ -18,7 +18,7 @@
                  
             </div>
              <div>
-                <asp:DropDownList ID="ddlCarreras" CssClass="btn" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="ddlCarreras" CssClass="btn" runat="server"  AutoPostBack="true" OnSelectedIndexChanged="ddlCarreras_SelectedIndexChanged"></asp:DropDownList>
                 <asp:DropDownList ID="ddlRamos" CssClass="btn" runat="server"></asp:DropDownList>
                   
             </div>

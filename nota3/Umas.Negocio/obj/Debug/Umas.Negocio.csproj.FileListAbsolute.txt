@@ -1,0 +1,17 @@
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\Umas.Negocio.dll.config
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\Umas.Negocio.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\Umas.Negocio.pdb
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\dalc.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\Entidades.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\EntityFramework.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\dalc.pdb
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\dalc.dll.config
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\Entidades.pdb
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\EntityFramework.xml
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\obj\Debug\Umas.Negocio.csprojAssemblyReference.cache
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\obj\Debug\Umas.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\obj\Debug\Umas.Negocio.csproj.CopyComplete
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\obj\Debug\Umas.Negocio.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\Umas.Negocio\obj\Debug\Umas.Negocio.pdb

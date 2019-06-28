@@ -1,0 +1,60 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Raúl Strappa León\\Desktop\\Integracion\\nota3\\u+.dalc\\u+.dalc.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Raúl Strappa León\\Desktop\\Integracion\\nota3\\u+.dalc\\u+.dalc.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Raúl Strappa León\\Desktop\\Integracion\\nota3\\u+.dalc\\u+.dalc.csproj",
+        "projectName": "u+.dalc",
+        "projectPath": "C:\\Users\\Raúl Strappa León\\Desktop\\Integracion\\nota3\\u+.dalc\\u+.dalc.csproj",
+        "packagesPath": "C:\\Users\\Raúl Strappa León\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Raúl Strappa León\\Desktop\\Integracion\\nota3\\u+.dalc\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Raúl Strappa León\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

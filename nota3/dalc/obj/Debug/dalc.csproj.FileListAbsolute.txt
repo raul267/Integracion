@@ -1,0 +1,12 @@
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\bin\Debug\dalc.dll.config
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\bin\Debug\dalc.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\bin\Debug\dalc.pdb
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\bin\Debug\EntityFramework.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\bin\Debug\EntityFramework.xml
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\obj\Debug\dalc.csprojAssemblyReference.cache
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\obj\Debug\dalc.csproj.CoreCompileInputs.cache
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\obj\Debug\dalc.csproj.CopyComplete
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\obj\Debug\dalc.dll
+C:\Users\Raúl Strappa León\Desktop\Integracion\nota3\dalc\obj\Debug\dalc.pdb
