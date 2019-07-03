@@ -6,33 +6,39 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <link href="miCss.css" rel="stylesheet" />
 </head>
-<<body>
+<body>
+    <div class="divMedio">
     <form id="form1" runat="server">    
         <h1>Asignar Equivalencia</h1>
         <h2>Carrera U+</h2>
         <p>
             <asp:Label runat="server">Carreras</asp:Label>
-            <asp:DropDownList ID="cboCarrera" runat="server" AutoPostBack="true"
+            <asp:DropDownList ID="cboCarrera" runat="server" CssClass="ddl" AutoPostBack="true"
                 OnSelectedIndexChanged="cboCarrera_SelectedIndexChanged">
             </asp:DropDownList>
         </p>
         <p>
             <asp:Label runat="server">Ramos</asp:Label>
-            <asp:DropDownList ID="cboRamos" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="cboRamos" CssClass="ddl" runat="server"></asp:DropDownList>
         </p>
         <h2>Carrera Moodle</h2>
         <p>
             <asp:Label runat="server">Cursos</asp:Label>
-            <asp:DropDownList ID="cboCurso" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="cboCursoo" CssClass="ddl" runat="server"></asp:DropDownList>
         </p>
         <p>
-            <asp:Button ID="Asignar" runat="server" Text="Registrar Equivalencia" OnClick="Asignar_Click" />
+            <asp:Button ID="Asignar" runat="server" CssClass="btnRedondo" Text="Registrar Equivalencia" OnClick="Asignar_Click" />
         </p>
 
         <p>
             <label id="lblResultado" runat="server"></label>
         </p>
     </form>
+        </div>
+ <script>
+     
+ </script>
 </body>
 </html>

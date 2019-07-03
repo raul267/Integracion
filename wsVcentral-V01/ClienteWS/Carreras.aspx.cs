@@ -13,28 +13,34 @@ using ClasesApi;
 using System.Xml.Serialization;
 using Umas.Negocio;
 using Umas.DALC;
+using System.Data.SqlClient;
+
 public partial class index : System.Web.UI.Page
 {
+    SqlConnection conexion = new SqlConnection("server=DESKTOP-6L53SUV; database=db_vcentral; User ID=val;Password=val");
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
+            Limpiar();
             LlenarCarreras();
+
+            //Cuando la página se cargue, colocar la dirección de cualquier api
+            string url = "http://www.sieduc.cl/phpApi/mdl_course.php";
+            string res = leerPaginaWeb(url);
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Cursos Lista = js.Deserialize<Cursos>(res);
+            cboCursoo.Items.Clear();
+            cboCursoo.Items.Add(new ListItem("Seleccione...", "666"));
+            foreach (Ramos cursos in Lista.cursos)
+            {
+                string valor = cursos.IDCursoMoodle;
+                string texto = cursos.Nombre;
+                cboCursoo.Items.Add(new ListItem(texto, valor));
+            }
+
         }
 
-        //Cuando la página se cargue, colocar la dirección de cualquier api
-        string url = "http://www.sieduc.cl/phpApi/mdl_course.php";
-        string res = leerPaginaWeb(url);
-        JavaScriptSerializer js = new JavaScriptSerializer();
-        Cursos Lista = js.Deserialize<Cursos>(res);
-        cboCurso.Items.Clear();
-        cboCurso.Items.Add(new ListItem("Seleccione...", ""));
-        foreach (Ramos cursos in Lista.cursos)
-        {
-            string valor = cursos.IDCursoMoodle;
-            string texto = cursos.Nombre;
-            cboCurso.Items.Add(new ListItem(texto,valor));
-        }
     }
 
     static string leerPaginaWeb(string url)
@@ -113,27 +119,26 @@ public partial class index : System.Web.UI.Page
 
     }
 
+
+
     protected void Asignar_Click(object sender, EventArgs e)
     {
-        XmlSerializer xmlSerial = new XmlSerializer(typeof(Entidades.Asignacion));
-        StringWriter xmlWrite = new StringWriter();
-        Entidades.Asignacion oAs = new Entidades.Asignacion();
-        wsUmas.WebServiceSoapClient ws = new wsUmas.WebServiceSoapClient();
-        
-        bool resp;
-        oAs.Id_carrera = cboCarrera.SelectedValue;
-        oAs.Id_curso_modle = cboCurso.SelectedValue;
-        oAs.Id_ramo = cboRamos.SelectedValue;
-        xmlSerial.Serialize(xmlWrite, oAs);
-        resp = Crear(xmlSerial.ToString());
+        string query = "INSERT INTO asignacionn (cod_cursoumas, cod_carrera, cod_cursomoodle) VALUES (@cu_umas, @ca_umas, @cu_moodle)";
+        conexion.Open();
+        SqlCommand comando = new SqlCommand(query, conexion);
+        comando.Parameters.AddWithValue("@cu_umas", cboRamos.SelectedValue);
+        comando.Parameters.AddWithValue("@ca_umas", cboCarrera.SelectedValue);
+        comando.Parameters.Add("@cu_moodle",cboCursoo.SelectedValue);
+        comando.ExecuteNonQuery();
+        conexion.Close();
+        Response.Write("<script>alert('Exito al registrar');</script>");
+    }
 
-        if (resp)
-        {
-            lblResultado.InnerText = "Datos Guardados";
-        }
-        else
-        {
-            lblResultado.InnerText = "Datos NO guardados";
-        }
+    public void Limpiar()
+    {
+        cboCarrera.SelectedIndex = 0;
+        cboCursoo.SelectedIndex = 0;
+        cboRamos.SelectedIndex = 0;
+        lblResultado.InnerText = "";
     }
 }

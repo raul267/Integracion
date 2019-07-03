@@ -48,5 +48,48 @@ namespace wsVcentralV01
             }
             return dt;
         }
+
+        //Aqui se llamara al procedimiento almacenado del notas
+        public DataTable Notas()
+        {
+            DataTable dt;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SPIngresarNota";
+                BaseDatos db = new BaseDatos();
+                dt = db.EjecutarConsulta(cmd);
+            }
+            catch (SqlException ex)
+            {
+                dt = null;
+            }
+            return dt;
+        }
+
+        public DataTable InsertaNotas(int ano, int per, string codramo, string codsecc, string codalu, double nf)
+        {
+            DataTable dt;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SPIngresarNota";
+                cmd.Parameters.Add("@ano", SqlDbType.VarChar, 50).Value = ano;
+                cmd.Parameters.Add("@per", SqlDbType.VarChar, 50).Value = per;
+                cmd.Parameters.Add("@codramo", SqlDbType.VarChar, 50).Value = codramo;
+                cmd.Parameters.Add("@codsecc", SqlDbType.VarChar, 50).Value = codsecc;
+                cmd.Parameters.Add("@codalu", SqlDbType.VarChar, 50).Value = codalu;
+                cmd.Parameters.Add("@nf", SqlDbType.VarChar, 50).Value = nf;
+                BaseDatos db = new BaseDatos();
+                dt = db.EjecutarConsulta(cmd);
+            }
+            catch (SqlException ex)
+            {
+                dt = null;
+            }
+            return dt;
+        }
     }
 }

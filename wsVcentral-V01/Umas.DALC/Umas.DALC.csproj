@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6374956F-41A5-445A-8528-19ECDFB74B93}</ProjectGuid>
+    <ProjectGuid>{F03C5840-826A-44F8-A4E2-5D3444DBB182}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Umas.DALC</RootNamespace>
@@ -101,30 +101,32 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="packages.config" />
     <EntityDeploy Include="Umas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Umas.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
     <None Include="Umas.edmx.diagram">
       <DependentUpon>Umas.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Umas.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Umas.edmx</DependentUpon>
       <LastGenOutput>Umas.Context.cs</LastGenOutput>
+      <DependentUpon>Umas.edmx</DependentUpon>
     </Content>
     <Content Include="Umas.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Umas.edmx</DependentUpon>
       <LastGenOutput>Umas.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

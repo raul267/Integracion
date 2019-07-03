@@ -1,6 +1,6 @@
-C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Entidades\bin\Debug\Entidades.dll
-C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Entidades\bin\Debug\Entidades.pdb
-C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
-C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
-C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Entidades\obj\Debug\Entidades.dll
-C:\Users\Raúl Strappa León\Desktop\Integracion\wsVcentral-V01\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Entidades\bin\Debug\Entidades.dll
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Entidades\obj\Debug\Entidades.dll
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Entidades\obj\Debug\Entidades.pdb

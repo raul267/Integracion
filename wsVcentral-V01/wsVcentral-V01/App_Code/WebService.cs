@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Xml;
-using System.Xml.Serialization;
 using wsVcentralV01;
-using Umas.DALC;
-using Umas.Negocio;
 
 /// <summary>
 /// Descripción breve de WebService
@@ -41,22 +37,11 @@ public class WebService : System.Web.Services.WebService
         return objxml.xmlMallaCarrera(codcarr);
     }
 
-    public bool Crear(string xmlAsignacion)
+    [WebMethod]
+    public XmlDocument Notas(int ano, int per, string codramo, string codsecc, string codalu, double nf)
     {
-        XmlSerializer xmlSerial = new XmlSerializer(typeof(Entidades.Asignacion));
-        StringReader xmlRead = new StringReader(xmlAsignacion);
-        Entidades.Asignacion oAs = (Entidades.Asignacion)xmlSerial.Deserialize(xmlRead);
-        Umas.Negocio.Asignacion nAs = new Umas.Negocio.Asignacion();
-
-        if (nAs.Crear(oAs))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
+        XmlUmas objxml = new XmlUmas();
+        return objxml.xmlNotas();
     }
 
 }

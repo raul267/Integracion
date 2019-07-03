@@ -336,7 +336,7 @@
           <End Role="alumno" Type="Self.alumno" Multiplicity="*" />
           <End Role="malla" Type="Self.malla" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="db_vcentralEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="db_vcentralEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="alumno" EntityType="Self.alumno" />
           <EntitySet Name="asignacion" EntityType="Self.asignacion" />
           <EntitySet Name="asignacion_ramos" EntityType="Self.asignacion_ramos" />
@@ -428,7 +428,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="db_vcentralModelStoreContainer" CdmEntityContainer="db_vcentralEntities2">
+        <EntityContainerMapping StorageEntityContainer="db_vcentralModelStoreContainer" CdmEntityContainer="db_vcentralEntities">
           <EntitySetMapping Name="alumno">
             <EntityTypeMapping TypeName="db_vcentralModel.alumno">
               <MappingFragment StoreEntitySet="alumno">

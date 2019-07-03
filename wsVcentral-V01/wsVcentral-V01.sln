@@ -6,7 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "wsVcentral-V01", "wsVcentral-V01\", "{E1348FED-C014-47F6-A929-D22E108400B8}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
-		ProjectReferences = "{ea1e0adc-7ce7-4ee6-bb67-817ebac566e1}|ClasesApi.dll;{73d347fb-e086-4b0d-82a5-3a3e46ac1560}|Entidades.dll;{6374956f-41a5-445a-8528-19ecdfb74b93}|Umas.DALC.dll;{efd2ed68-add9-44d7-99bc-dce0e9544965}|Umas.Negocio.dll;"
+		ProjectReferences = "{ea1e0adc-7ce7-4ee6-bb67-817ebac566e1}|ClasesApi.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_9042"
 		Debug.AspNetCompiler.PhysicalPath = "wsVcentral-V01\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9042\"
@@ -29,7 +29,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ClienteWS", "ClienteWS\", "{E75F864C-E40E-4F96-B74D-AB706465AD6F}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
-		ProjectReferences = "{ea1e0adc-7ce7-4ee6-bb67-817ebac566e1}|ClasesApi.dll;{73d347fb-e086-4b0d-82a5-3a3e46ac1560}|Entidades.dll;{6374956f-41a5-445a-8528-19ecdfb74b93}|Umas.DALC.dll;{efd2ed68-add9-44d7-99bc-dce0e9544965}|Umas.Negocio.dll;"
+		ProjectReferences = "{ea1e0adc-7ce7-4ee6-bb67-817ebac566e1}|ClasesApi.dll;{5cf26bbd-da04-42e0-ace6-78c5ba3db123}|Entidades.dll;{f03c5840-826a-44f8-a4e2-5d3444dbb182}|Umas.DALC.dll;{6c85dd07-28a7-4f95-b1a1-3a7e0db23b4b}|Umas.Negiocio.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_9058"
 		Debug.AspNetCompiler.PhysicalPath = "ClienteWS\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_9058\"
@@ -54,11 +54,18 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ClienteWS", "ClienteWS\", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClasesApi", "ClasesApi\ClasesApi.csproj", "{EA1E0ADC-7CE7-4EE6-BB67-817EBAC566E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umas.DALC", "Umas.DALC\Umas.DALC.csproj", "{6374956F-41A5-445A-8528-19ECDFB74B93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{5CF26BBD-DA04-42E0-ACE6-78C5BA3DB123}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umas.Negocio", "Umas.Negocio\Umas.Negocio.csproj", "{EFD2ED68-ADD9-44D7-99BC-DCE0E9544965}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umas.DALC", "Umas.DALC\Umas.DALC.csproj", "{F03C5840-826A-44F8-A4E2-5D3444DBB182}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{73D347FB-E086-4B0D-82A5-3A3E46AC1560}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umas.Negocio", "Umas.Negiocio\Umas.Negocio.csproj", "{6C85DD07-28A7-4F95-B1A1-3A7E0DB23B4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceCRUD", "ServiceCRUD\ServiceCRUD.csproj", "{8C746B36-AD6B-4CB9-BC5E-601036B84F8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "img", "img", "{3EA279E1-A611-478E-A663-472B92885C80}"
+	ProjectSection(SolutionItems) = preProject
+		img\fondo.jpg = img\fondo.jpg
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,18 +85,22 @@ Global
 		{EA1E0ADC-7CE7-4EE6-BB67-817EBAC566E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA1E0ADC-7CE7-4EE6-BB67-817EBAC566E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA1E0ADC-7CE7-4EE6-BB67-817EBAC566E1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6374956F-41A5-445A-8528-19ECDFB74B93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6374956F-41A5-445A-8528-19ECDFB74B93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6374956F-41A5-445A-8528-19ECDFB74B93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6374956F-41A5-445A-8528-19ECDFB74B93}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EFD2ED68-ADD9-44D7-99BC-DCE0E9544965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFD2ED68-ADD9-44D7-99BC-DCE0E9544965}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFD2ED68-ADD9-44D7-99BC-DCE0E9544965}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFD2ED68-ADD9-44D7-99BC-DCE0E9544965}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73D347FB-E086-4B0D-82A5-3A3E46AC1560}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73D347FB-E086-4B0D-82A5-3A3E46AC1560}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73D347FB-E086-4B0D-82A5-3A3E46AC1560}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73D347FB-E086-4B0D-82A5-3A3E46AC1560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CF26BBD-DA04-42E0-ACE6-78C5BA3DB123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CF26BBD-DA04-42E0-ACE6-78C5BA3DB123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CF26BBD-DA04-42E0-ACE6-78C5BA3DB123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CF26BBD-DA04-42E0-ACE6-78C5BA3DB123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F03C5840-826A-44F8-A4E2-5D3444DBB182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03C5840-826A-44F8-A4E2-5D3444DBB182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F03C5840-826A-44F8-A4E2-5D3444DBB182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F03C5840-826A-44F8-A4E2-5D3444DBB182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C85DD07-28A7-4F95-B1A1-3A7E0DB23B4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C85DD07-28A7-4F95-B1A1-3A7E0DB23B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C85DD07-28A7-4F95-B1A1-3A7E0DB23B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C85DD07-28A7-4F95-B1A1-3A7E0DB23B4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C746B36-AD6B-4CB9-BC5E-601036B84F8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C746B36-AD6B-4CB9-BC5E-601036B84F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C746B36-AD6B-4CB9-BC5E-601036B84F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C746B36-AD6B-4CB9-BC5E-601036B84F8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

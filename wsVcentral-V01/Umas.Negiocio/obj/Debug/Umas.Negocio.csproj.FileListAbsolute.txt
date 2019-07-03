@@ -1,0 +1,17 @@
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\Umas.Negiocio.dll.config
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\Umas.Negiocio.dll
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\Umas.Negiocio.pdb
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\Entidades.dll
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\EntityFramework.dll
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\Umas.DALC.dll
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\Entidades.pdb
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\Umas.DALC.pdb
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\Umas.DALC.dll.config
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\EntityFramework.xml
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\obj\Debug\Umas.Negocio.csprojAssemblyReference.cache
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\obj\Debug\Umas.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\obj\Debug\Umas.Negocio.csproj.CopyComplete
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\obj\Debug\Umas.Negiocio.dll
+C:\Users\Raúl Strappa León\Downloads\wsVcentral-V01\Umas.Negiocio\obj\Debug\Umas.Negiocio.pdb

@@ -15,10 +15,10 @@ namespace Umas.DALC
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class db_vcentralEntities2 : DbContext
+    public partial class db_vcentralEntities : DbContext
     {
-        public db_vcentralEntities2()
-            : base("name=db_vcentralEntities2")
+        public db_vcentralEntities()
+            : base("name=db_vcentralEntities")
         {
         }
     
