@@ -123,15 +123,22 @@ public partial class index : System.Web.UI.Page
 
     protected void Asignar_Click(object sender, EventArgs e)
     {
-        string query = "INSERT INTO asignacionn (cod_cursoumas, cod_carrera, cod_cursomoodle) VALUES (@cu_umas, @ca_umas, @cu_moodle)";
-        conexion.Open();
-        SqlCommand comando = new SqlCommand(query, conexion);
-        comando.Parameters.AddWithValue("@cu_umas", cboRamos.SelectedValue);
-        comando.Parameters.AddWithValue("@ca_umas", cboCarrera.SelectedValue);
-        comando.Parameters.Add("@cu_moodle",cboCursoo.SelectedValue);
-        comando.ExecuteNonQuery();
-        conexion.Close();
-        Response.Write("<script>alert('Exito al registrar');</script>");
+        if (cboCarrera.SelectedIndex == 0 || cboCursoo.SelectedIndex == 0 || cboRamos.SelectedIndex == 0)
+        {
+            Response.Write("<script>alert('Selecciona todos los datos');</script>");
+        }
+        else
+        {
+            string query = "INSERT INTO asignacionn (cod_cursoumas, cod_carrera, cod_cursomoodle) VALUES (@cu_umas, @ca_umas, @cu_moodle)";
+            conexion.Open();
+            SqlCommand comando = new SqlCommand(query, conexion);
+            comando.Parameters.AddWithValue("@cu_umas", cboRamos.SelectedValue);
+            comando.Parameters.AddWithValue("@ca_umas", cboCarrera.SelectedValue);
+            comando.Parameters.Add("@cu_moodle", cboCursoo.SelectedValue);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            Response.Write("<script>alert('Exito al registrar');</script>");
+        }
     }
 
     public void Limpiar()
@@ -139,6 +146,10 @@ public partial class index : System.Web.UI.Page
         cboCarrera.SelectedIndex = 0;
         cboCursoo.SelectedIndex = 0;
         cboRamos.SelectedIndex = 0;
-        lblResultado.InnerText = "";
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("index.aspx");
     }
 }

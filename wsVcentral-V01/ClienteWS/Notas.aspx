@@ -9,7 +9,7 @@
     <link href="miCss.css" rel="stylesheet" />
 </head>
 <body>
-    <div id="divNotas">
+    <div id="divNotas" runat="server">
         <label id="lblNotas" runat="server"></label>
     </div>
     <div class="divMedio2">
@@ -21,18 +21,12 @@
         <asp:Label ID="lblPeriodo" runat="server" Text="Periodo"></asp:Label>
         <asp:DropDownList ID="cboPeriodo" class="ddl" runat="server"></asp:DropDownList>    
         <asp:Button ID="btnTraspasar" runat="server" CssClass="btnRedondo2" Text="Traspasar" OnClick="btnTraspasar_Click" />
+        <asp:Button ID="btnMostrar" runat="server" Text="Mostrar notas" CssClass="btnRedondo" OnClick="btnMostrar_Click" />
         </div>
     </form>
         </div>
     
     
-    <script>
-        document.getElementById("btnMostrar").onclick = function () {
-            document.getElementById("divNotas").style.display = "block";
-            
-        };
-
-      
-    </script>
+    
         </body>
 </html>

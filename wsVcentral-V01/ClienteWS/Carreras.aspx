@@ -30,10 +30,7 @@
         </p>
         <p>
             <asp:Button ID="Asignar" runat="server" CssClass="btnRedondo" Text="Registrar Equivalencia" OnClick="Asignar_Click" />
-        </p>
-
-        <p>
-            <label id="lblResultado" runat="server"></label>
+        <asp:Button ID="Button1" runat="server" CssClass="btnRedondo"  Text="Volver" OnClick="Button1_Click" />
         </p>
     </form>
         </div>

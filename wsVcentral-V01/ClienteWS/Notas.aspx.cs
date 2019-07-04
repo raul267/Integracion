@@ -15,41 +15,47 @@ public partial class Notas : System.Web.UI.Page
     SqlConnection conexion = new SqlConnection("server=DESKTOP-6L53SUV; database=db_vcentral; User ID=val;Password=val");
     protected void Page_Load(object sender, EventArgs e)
     {
-        string url = "http://www.sieduc.cl/phpApi/mdl_enrole_course.php";
-        string res = LeerPaginaWeb(url);
-        JavaScriptSerializer js = new JavaScriptSerializer();
-        AlumnoNotas Lista = js.Deserialize<AlumnoNotas>(res);
-        cboAno.Items.Clear();
-        cboAno.Items.Add(new ListItem("Seleccione...", ""));
-        cboAno.Items.Add(new ListItem("2018", ""));
-        cboAno.Items.Add(new ListItem("2019", ""));
-        cboAno.Items.Add(new ListItem("2020", ""));
-        cboPeriodo.Items.Clear();
-        cboPeriodo.Items.Add(new ListItem("Seleccione...", ""));
-        cboPeriodo.Items.Add(new ListItem("1", ""));
-        cboPeriodo.Items.Add(new ListItem("2", ""));
-        lblNotas.InnerHtml += "<table border=1 bgcolor='white'>";
-        lblNotas.InnerHtml += "<thead>";
-        lblNotas.InnerHtml += "<tr>";
-        lblNotas.InnerHtml += "<th>Id curso</th>";
-        lblNotas.InnerHtml += "<th>Rut estudiante</th>";
-        lblNotas.InnerHtml += "<th>Nota final</th>";
-        lblNotas.InnerHtml += "</tr>";
-        lblNotas.InnerHtml += "</thead>";
-        lblNotas.InnerHtml += "<tbody>";
-        foreach (NotasF alucursos in Lista.alucursos)
+        if (!IsPostBack)
         {
-            lblNotas.InnerHtml +="<tr>";
-            lblNotas.InnerHtml += "<td>"+ alucursos.IDCursoMoodle+"</td>";
-            lblNotas.InnerHtml += "<td>"+alucursos.RutEstudiante+"</td>";
-            lblNotas.InnerHtml += "<td>"+ alucursos.NotaFinal +"</td>";
-            lblNotas.InnerHtml += "</tr>";
-            // Response.Write("ID Curso : " + alucursos.IDCursoMoodle + " - Rut Estudiante : " + alucursos.RutEstudiante +
-            // " - Nota Final: " + alucursos.NotaFinal + "<br>");
-        }
-        lblNotas.InnerHtml += "</tbody>";
-        lblNotas.InnerHtml += "</table>";
+            string url = "http://www.sieduc.cl/phpApi/mdl_enrole_course.php";
+            string res = LeerPaginaWeb(url);
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            AlumnoNotas Lista = js.Deserialize<AlumnoNotas>(res);
 
+            cboAno.Items.Clear();
+            cboAno.Items.Add(new ListItem("Seleccione...", ""));
+            cboAno.Items.Add(new ListItem("2018", "2018"));
+            cboAno.Items.Add(new ListItem("2019", "2019"));
+            cboAno.Items.Add(new ListItem("2020", "2020"));
+
+            cboPeriodo.Items.Clear();
+            cboPeriodo.Items.Add(new ListItem("Seleccione...", ""));
+            cboPeriodo.Items.Add(new ListItem("1", "1"));
+            cboPeriodo.Items.Add(new ListItem("2", "2"));
+
+            lblNotas.InnerHtml += "<table border=1 bgcolor='white'>";
+            lblNotas.InnerHtml += "<thead>";
+            lblNotas.InnerHtml += "<tr>";
+            lblNotas.InnerHtml += "<th>Id curso</th>";
+            lblNotas.InnerHtml += "<th>Rut estudiante</th>";
+            lblNotas.InnerHtml += "<th>Nota final</th>";
+            lblNotas.InnerHtml += "</tr>";
+            lblNotas.InnerHtml += "</thead>";
+            lblNotas.InnerHtml += "<tbody>";
+            foreach (NotasF alucursos in Lista.alucursos)
+            {
+                lblNotas.InnerHtml += "<tr>";
+                lblNotas.InnerHtml += "<td>" + alucursos.IDCursoMoodle + "</td>";
+                lblNotas.InnerHtml += "<td>" + alucursos.RutEstudiante + "</td>";
+                lblNotas.InnerHtml += "<td>" + alucursos.NotaFinal + "</td>";
+                lblNotas.InnerHtml += "</tr>";
+                // Response.Write("ID Curso : " + alucursos.IDCursoMoodle + " - Rut Estudiante : " + alucursos.RutEstudiante +
+                // " - Nota Final: " + alucursos.NotaFinal + "<br>");
+            }
+            lblNotas.InnerHtml += "</tbody>";
+            lblNotas.InnerHtml += "</table>";
+
+        }
     }
 
     static string LeerPaginaWeb(string url)
@@ -82,9 +88,10 @@ public partial class Notas : System.Web.UI.Page
         //HACER ALGO ASI
 
         //Sacar datos de la vita
-        string ano = cboAno.SelectedValue;
-        string per = cboPeriodo.SelectedValue;
-
+        int ano = 0;
+        int per = 0;
+        Int32.TryParse(cboAno.SelectedValue,out ano);
+        Int32.TryParse(cboPeriodo.SelectedValue, out per);
         //Sacar datos de la api 
 
         string url = "http://www.sieduc.cl/phpApi/mdl_enrole_course.php";
@@ -92,20 +99,22 @@ public partial class Notas : System.Web.UI.Page
         JavaScriptSerializer js = new JavaScriptSerializer();
         AlumnoNotas Lista = js.Deserialize<AlumnoNotas>(res);
         wsUmas.WebServiceSoapClient ws = new wsUmas.WebServiceSoapClient();
-        string query = "exec pruebaa @idCurso,@rutEstudiante,@notaFinal";
+        string query = "exec SPIngresarNota @ano,@per,@codramo,@codalu,@nf";
         foreach (NotasF alucursos in Lista.alucursos)
         {
 
 
             conexion.Open();
             SqlCommand comando = new SqlCommand(query, conexion);
-            comando.Parameters.AddWithValue("@idCurso", alucursos.IDCursoMoodle);
-            comando.Parameters.AddWithValue("@rutEstudiante", alucursos.RutEstudiante);
-            comando.Parameters.Add("@notaFinal", alucursos.NotaFinal);
+            comando.Parameters.AddWithValue("@ano",ano);
+            comando.Parameters.AddWithValue("@per", per);
+            comando.Parameters.AddWithValue("@codramo", alucursos.IDCursoMoodle);
+            comando.Parameters.AddWithValue("@codalu", alucursos.RutEstudiante);
+            comando.Parameters.Add("@nf", alucursos.NotaFinal);
             comando.ExecuteNonQuery();
             conexion.Close();
         }
-
+        
         Response.Write("<script>alert('Exito al traspasar las notas');</script>");
 
         /*
@@ -127,5 +136,10 @@ public partial class Notas : System.Web.UI.Page
            }
        }
        */
+    }
+
+    protected void btnMostrar_Click(object sender, EventArgs e)
+    {
+        divNotas.Style.Add("display","block");
     }
 }

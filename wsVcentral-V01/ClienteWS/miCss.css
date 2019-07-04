@@ -20,6 +20,7 @@
 #divNotas
 {
     float:left;
+    display:none;
 }
 .divMedio 
 {
